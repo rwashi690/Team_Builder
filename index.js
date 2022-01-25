@@ -20,6 +20,7 @@ async function addTeammates(numTeam) {
     for (let i = 0; i < numTeam; i++) {
         await inquirer.prompt(team_members)
         // Add logic to make sure you have all the information
+        // if 
         .then((data) => enteredTeam.push(data))
     }
     console.log(enteredTeam)
