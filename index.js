@@ -15,13 +15,16 @@ team_members = [
     }
 ]
 
+
 async function addTeammates(numTeam) {
     const enteredTeam = []
     for (let i = 0; i < numTeam; i++) {
         await inquirer.prompt(team_members)
+        .then ((data) =>{
+            enteredTeam.push(data)
+        });
         // Add logic to make sure you have all the information
-        // if 
-        .then((data) => enteredTeam.push(data))
+        // .then((data) => enteredTeam.push(data))
     }
     console.log(enteredTeam)
 }
