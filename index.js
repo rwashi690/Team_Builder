@@ -31,7 +31,7 @@ manager = [
         message: 'What is the managers office number?',
         name: 'office'
     }
-]
+];
 
 intern = [
     {
@@ -39,7 +39,7 @@ intern = [
         message: 'Where does the intern attend school?',
         name: 'school'
     }
-]
+];
 
 engineer = [
     {
@@ -47,61 +47,61 @@ engineer = [
         message: 'What is the GitHub account associated with the engineer?',
         name: 'github'
     }
-]
+];
+
+function getRole(role){
+    // if (role = 'Manager'){
+    //     inquirer.prompt(manager)
+    //     .then((data) => {
+    //        enteredTeam.push(data)
+    //     })
+    // } else if (role ='Intern'){
+    //     inquirer.prompt(intern)
+    //     .then((data) => {
+    //         enteredTeam.push(data)
+    //      })
+    // } else {
+    //     inquirer.prompt(engineer)
+    //     .then((data) => {
+    //         enteredTeam.push(data)
+    //      })
+    // }
+}
+
+// for (var key in p) {
+//     if (p.hasOwnProperty(key)) {
+//         console.log(key + " -> " + p[key]);
+//     }
+// }
+
 
 async function addTeammates(numTeam) {
     const enteredTeam = []
     for (let i = 0; i < numTeam; i++) {
         await inquirer.prompt(team_members)
-        .then ((data) =>{
-            // inquirer.prompt(manager)
-            // checkRole(data.role);
+        .then (async (data) =>{
+            enteredTeam.push(data)
+            
             if (data.role = 'Manager'){
-                inquirer.prompt(manager)
+                await inquirer.prompt(manager)
                 .then((data) => {
-                   enteredTeam.oush(data)
+                   enteredTeam.push(data)
                 })
             } else if (data.role ='Intern'){
-                inquirer.prompt(intern)
-                // .then((data) => {
-                //     let school = data.school;
-                // })
-            } else {
-                inquirer.prompt(engineer)
-                // .then((data) => {
-                //     let git = data.github;
-                // })
+                await inquirer.prompt(intern)
+                .then((data) => {
+                    enteredTeam.push(data)
+                 })
+            } else if (data.role='Engineer'){
+                await inquirer.prompt(engineer)
+                .then((data) => {
+                    enteredTeam.push(data)
+                 })
             }
-            
-            //let roleInfo=checkRole(data.role);
-            // enteredTeam.push(data, roleInfo);
         });
-        // Add logic to make sure you have all the information
-        // .then((data) => enteredTeam.push(data))
     }
-    // console.log(enteredTeam)
+    console.log(enteredTeam)
 }
-
-function checkRole(role){
-    if (role = 'Manager'){
-        inquirer.prompt(manager)
-        // .then((data) => {
-        //     let officeNum = data.office;
-        // })
-    } else if (role ='Intern'){
-        inquirer.prompt(intern)
-        // .then((data) => {
-        //     let school = data.school;
-        // })
-    } else {
-        inquirer.prompt(engineer)
-        // .then((data) => {
-        //     let git = data.github;
-        // })
-    }
-    // return officeNum, school, git;
-}
-
 
 function init() {
     inquirer.prompt([
