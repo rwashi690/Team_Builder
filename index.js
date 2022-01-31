@@ -82,17 +82,17 @@ async function addTeammates(numTeam) {
         .then (async (data) =>{
             enteredTeam.push(data)
             
-            if (data.role = 'Manager'){
+            if (data.role === 'Manager'){
                 await inquirer.prompt(manager)
                 .then((data) => {
                    enteredTeam.push(data)
                 })
-            } else if (data.role ='Intern'){
+            } else if (data.role === 'Intern'){
                 await inquirer.prompt(intern)
                 .then((data) => {
                     enteredTeam.push(data)
                  })
-            } else if (data.role='Engineer'){
+            } else if (data.role === 'Engineer'){
                 await inquirer.prompt(engineer)
                 .then((data) => {
                     enteredTeam.push(data)
